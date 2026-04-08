@@ -71,7 +71,6 @@ public class StabilityAIImageGenerator {
                 data.put("samples", 1);
                 data.put("steps", 30);
 
-                // ★修正: 引数として受け取った seed をAPIリクエストに設定
                 data.put("seed", seed);
 
                 try (OutputStream os = conn.getOutputStream()) {
