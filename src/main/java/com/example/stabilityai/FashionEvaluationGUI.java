@@ -81,29 +81,18 @@ public class FashionEvaluationGUI extends JFrame {
         add(evaluationPanel, BorderLayout.CENTER);
 
         // ボタンパネル
-
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-
         nextButton = new JButton("次へ");
-
-        // 「次へ」ボタンを小さくしました
-
         nextButton.setFont(new Font("SansSerif", Font.BOLD, 14));
-
         nextButton.setEnabled(false);
-
         nextButton.addActionListener(_ -> {
-
             setVisible(false);
-
             dispose();
-
             imageGenerationExecutor.shutdownNow();
 
-            onEvaluationComplete.accept(this.genes);
-
+            // 修正：引数ではなく、クラスのフィールド(this)を明示的に使用する
+            this.onEvaluationComplete.accept(this.genes);
         });
-
         buttonPanel.add(nextButton);
 
         add(buttonPanel, BorderLayout.SOUTH);

@@ -29,7 +29,6 @@ public class Main {
     private static String selectedBuild;
     private static String selectedColor;
 
-    // ★修正箇所: Randomオブジェクトをシステム時刻で初期化
     private static final Random rand = new Random(System.currentTimeMillis());
 
     private static long programStartTime; // プログラム全体の実行開始時間
@@ -365,9 +364,7 @@ public class Main {
         if (!eliteGenes.isEmpty()) {
 
             // デバッグ出力 (Max Score: 5, Elite Candidate Count: 6 が出ています)
-            // ... (省略) ...
 
-            // ★修正: リストをシャッフル
             // System.out.println("DEBUG: Before Shuffle (1st gene prompt hash): " +
             // eliteGenes.get(0).toPrompt().hashCode());
 
