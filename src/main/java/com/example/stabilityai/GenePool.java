@@ -4,13 +4,11 @@ import java.util.ArrayList;
 
 import java.util.Collections;
 
-import java.util.Comparator;
-
 import java.util.List;
 
 import java.util.Random;
 
-import java.util.stream.Collectors; // ★追加
+import java.util.stream.Collectors;
 
 public class GenePool {
 
@@ -18,11 +16,7 @@ public class GenePool {
 
     private int populationSize;
 
-    // ★修正: Main.javaと同じく、システム時刻で初期化するのが望ましいが、ここでは静的宣言を維持
-
     private static final Random rand = new Random(System.currentTimeMillis());
-
-    // ★★★ 追加: エリート個体数 ★★★
 
     private static final int ELITE_COUNT = 1; // 各世代で最もスコアの高い個体を1体引き継ぐ
 
@@ -36,7 +30,7 @@ public class GenePool {
 
     /**
      * 
-     * 初期集団を生成します。
+     * 初期集団を生成。
      * 
      * * @param initialColor 初期集団の基本色
      * 
@@ -55,8 +49,6 @@ public class GenePool {
             String initialBuild) {
 
         for (int i = 0; i < populationSize; i++) {
-
-            // ここでFashionGeneのコンストラクタに新しい引数を渡す必要があります。
 
             FashionGene newGene = new FashionGene(initialColor, initialGender, initialHeight, initialBuild);
 
@@ -80,9 +72,9 @@ public class GenePool {
 
     /**
      * 
-     * 遺伝的アルゴリズムの進化ステップを実行します。
+     * 遺伝的アルゴリズムの進化ステップを実行。
      * 
-     * 評価された個体から次世代の個体を生成します（エリート選択、交叉、突然変異を含む）。
+     * 評価された個体から次世代の個体を生成（エリート選択、交叉、突然変異を含む）。
      *
      * 
      * 
@@ -106,13 +98,9 @@ public class GenePool {
 
             String selectedGender, String selectedColor, String selectedHeight, String selectedBuild) {
 
-        // ★修正点 1: ソートを削除。エリート選択はランダムに行うためソートは不要
-
         // evaluatedGenes.sort(Comparator.comparingInt(FashionGene::getScore).reversed());
 
         List<FashionGene> newPopulation = new ArrayList<>();
-
-        // ★★★ 修正点 2: エリート選択をランダムに変更 ★★★
 
         for (int i = 0; i < ELITE_COUNT; i++) {
 
@@ -127,8 +115,6 @@ public class GenePool {
             }
 
         }
-
-        // ★★★ 修正終わり ★★★
 
         // 残りの個体を交叉と突然変異で生成
 
@@ -180,8 +166,6 @@ public class GenePool {
 
     }
 
-    // ★★★ 追加メソッド: エリート候補からランダムに1体を選ぶ ★★★
-
     private FashionGene selectRandomElite(List<FashionGene> genes) {
 
         if (genes == null || genes.isEmpty()) {
@@ -224,13 +208,11 @@ public class GenePool {
 
     }
 
-    // ★★★ 追加メソッド終わり ★★★
-
     /**
      * 
-     * スコアに基づいて親個体を重み付きランダム選択します。
+     * スコアに基づいて親個体を重み付きランダム選択。
      * 
-     * スコアが高いほど選択される確率が高くなります。
+     * スコアが高いほど選択される確率が高くなる。
      * 
      * * @param population 選択対象の個体リスト
      * 

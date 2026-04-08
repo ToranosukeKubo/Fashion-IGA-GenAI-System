@@ -56,7 +56,7 @@ public class FashionEvaluationGUI extends JFrame {
 
         setLocationRelativeTo(null);
 
-        // タイトルラベルを小さくしました
+        // タイトルラベルを小さく
 
         JLabel titleLabel = new JLabel("すべての画像に1から7で評価を付けてください", SwingConstants.CENTER);
 
@@ -90,7 +90,6 @@ public class FashionEvaluationGUI extends JFrame {
             dispose();
             imageGenerationExecutor.shutdownNow();
 
-            // 修正：引数ではなく、クラスのフィールド(this)を明示的に使用する
             this.onEvaluationComplete.accept(this.genes);
         });
         buttonPanel.add(nextButton);
@@ -307,8 +306,6 @@ public class FashionEvaluationGUI extends JFrame {
 
         long positiveSeed = Math.abs((long) seedValue);
 
-        // ★変更: ファイル名にシード値を含め、プロンプトとシード値の組み合わせで一意にする
-
         String uniqueIdentifier = promptText + "_" + positiveSeed;
 
         String filename = "fashion_gen_" + Math.abs(uniqueIdentifier.hashCode()) + ".png";
@@ -322,8 +319,6 @@ public class FashionEvaluationGUI extends JFrame {
                 File imageFile = new File("images/" + gene.getImageFilename());
 
                 if (imageFile.exists()) {
-
-                    // ... (既存画像の読み込み処理は省略) ...
 
                     Image loadedImage = ImageIO.read(imageFile);
 
@@ -359,15 +354,9 @@ public class FashionEvaluationGUI extends JFrame {
 
         imageGenerationExecutor.submit(() -> {
 
-            // ★変更: 画像ファイル名を、プロンプト＋シード値で確定させた一意なものにする
-
             String outputPath = "images/" + filename;
 
             File outputFile = new File(outputPath);
-
-            // ★重要: StabilityAIImageGenerator.generateImage がシード値を受け取るように変更が必要
-
-            // 外部クラスの変更が必要ですが、ここでは引数を追加した前提で呼び出します
 
             boolean success = StabilityAIImageGenerator.generateImage(promptText, (int) positiveSeed, outputPath);
 
