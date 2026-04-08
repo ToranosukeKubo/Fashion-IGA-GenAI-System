@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 /**
  * 選択されたファッション画像を拡大表示するためのダイアログ。
- * 画像のスクロールと拡大・縮小機能を提供します。
+ * 画像のスクロールと拡大・縮小機能を提供。
  */
 public class ImageViewerDialog extends JDialog {
 

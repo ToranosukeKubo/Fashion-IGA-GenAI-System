@@ -207,11 +207,8 @@ public class FashionGene {
     /**
      * 
      * 交叉（Crossover）: 2つの親から新しい子を生成。
-     * 
      * 色、性別、身長、体格は親1からそのまま引き継ぐ。
-     * 
      * 他のファッション要素は親からランダムに選択。
-     * 
      */
 
     public static FashionGene crossover(FashionGene parent1, FashionGene parent2) {
@@ -251,11 +248,8 @@ public class FashionGene {
     }
 
     /**
-     * 
      * 突然変異（Mutation）: 遺伝子の一部をランダムに変化させる。
-     * 
      * 色、性別、身長、体格は突然変異の対象外。
-     * 
      */
 
     public void mutate(double mutationRate) {
