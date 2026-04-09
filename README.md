@@ -8,11 +8,17 @@
 
 ## プロジェクト構成
 ├── src/main/java/com/example/stabilityai/
+
 │   ├── Main.java                # エントリポイント・GUI制御
+
 │   ├── FashionGene.java         # 遺伝子モデル・プロンプト生成
+
 │   ├── GenePool.java            # GAアルゴリズム（交叉・突然変異）
+
 │   └── StabilityAIImageGenerator.java # API通信部
+
 ├── pom.xml                      # Maven設定
+
 └── .gitignore                   # セキュリティ設定
 
 ## 使用技術
@@ -31,6 +37,29 @@
 ## 主な機能
 - **動的プロンプト生成**: 遺伝子情報からAI用のプロンプトを自動生成
 - **セキュリティ**: APIキーや環境依存情報を .env ファイルで安全に管理
+
+## セットアップ (Setup)
+
+本システムを実行するための手順です。
+
+### 1. APIキーの設定
+1. [Stability AI Platform](https://platform.stability.ai/) でアカウントを作成し、APIキーを取得します。
+2. プロジェクトのルートディレクトリ（`pom.xml` と同じ場所）に `.env` という名前のファイルを作成します。
+3. 作成したファイル内に以下の内容を記述し、保存してください。
+   ```text
+   STABILITY_AI_API_KEY=ここにあなたのAPIキーを記述
+※ .gitignore により、このファイルは外部（GitHub）には公開されないよう設定されています。
+
+### 2. ライブラリのインストール
+Mavenを使用して、必要なライブラリをインストールします。
+
+Bash
+mvn install
+### 3. アプリケーションの実行
+以下のコマンドでメインクラスを起動します。
+
+Bash
+mvn exec:java -Dexec.mainClass="com.example.stabilityai.Main"
 
 ## システム概要 (System Overview)
 
