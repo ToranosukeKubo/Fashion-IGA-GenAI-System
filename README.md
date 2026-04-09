@@ -8,11 +8,17 @@
 
 ## プロジェクト構成
 ├── src/main/java/com/example/stabilityai/
+
 │   ├── Main.java                # エントリポイント・GUI制御
+
 │   ├── FashionGene.java         # 遺伝子モデル・プロンプト生成
+
 │   ├── GenePool.java            # GAアルゴリズム（交叉・突然変異）
+
 │   └── StabilityAIImageGenerator.java # API通信部
+
 ├── pom.xml                      # Maven設定
+
 └── .gitignore                   # セキュリティ設定
 
 ## 使用技術
