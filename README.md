@@ -8,17 +8,11 @@
 
 ## プロジェクト構成
 ├── src/main/java/com/example/stabilityai/
-
 │   ├── Main.java                # エントリポイント・GUI制御
-
 │   ├── FashionGene.java         # 遺伝子モデル・プロンプト生成
-
 │   ├── GenePool.java            # GAアルゴリズム（交叉・突然変異）
-
 │   └── StabilityAIImageGenerator.java # API通信部
-
 ├── pom.xml                      # Maven設定
-
 └── .gitignore                   # セキュリティ設定
 
 ## 使用技術
@@ -48,7 +42,7 @@
 3. 作成したファイル内に以下の内容を記述し、保存してください。
    ```text
    STABILITY_AI_API_KEY=ここにあなたのAPIキーを記述
-※ .gitignore により、このファイルは外部（GitHub）には公開されないよう設定されています。
+※ .gitignore により、このファイルは公開されないよう設定されています。
 
 ### 2. ライブラリのインストール
 Mavenを使用して、必要なライブラリをインストールします。
