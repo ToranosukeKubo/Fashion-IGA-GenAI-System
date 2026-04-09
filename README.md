@@ -38,19 +38,24 @@
 
 ### 処理プロセス
 1. **初期集団の生成**: 設定された条件（性別、身長、体格、色）に基づき、ランダムなファッション遺伝子を持つ8個体を生成。
-<img width="608" height="365" alt="スクリーンショット 2025-11-14 140351" src="https://github.com/user-attachments/assets/10c14a4e-a7a2-4d11-beb3-e981f8c10063" />
+<img width="357" height="179" alt="スクリーンショット 2025-11-14 140306" src="https://github.com/user-attachments/assets/01915f86-3953-43df-a619-485c20baaf99" />
+
 > *図1：性別選択*
 <img width="479" height="242" alt="スクリーンショット 2025-11-14 140325" src="https://github.com/user-attachments/assets/ff3b525d-625f-4025-8177-70041e53165a" />
+
 > *図2：身長・体格選択*
-<img width="357" height="179" alt="スクリーンショット 2025-11-14 140306" src="https://github.com/user-attachments/assets/01915f86-3953-43df-a619-485c20baaf99" />
+<img width="608" height="365" alt="スクリーンショット 2025-11-14 140351" src="https://github.com/user-attachments/assets/10c14a4e-a7a2-4d11-beb3-e981f8c10063" />
+
 > *図3：色選択*
 2. **画像生成**: Stability AI API (SDXL 1.0) を使用し、遺伝子情報をプロンプトに変換して画像を生成。
 3. **ユーザー評価**: GUI上でユーザーが各画像に対して 1〜5点 の評価を実施。
 4. **次世代の生成**: 評価スコアに基づき、エリート・ルーレット選択、一様交叉、突然変異を適用して次世代の遺伝子を作成。
 5. **収束**: ユーザーが納得するデザインが得られるまで、このサイクルを繰り返します。
 <img width="1912" height="1079" alt="スクリーンショット 2025-11-15 114134" src="https://github.com/user-attachments/assets/fc9d68ac-dce9-4d15-80b6-82c2beeabc85" />
+
 > *図4：第1世代で生成された、（Men’s，低め，細身，黒）を反映したコーディネート*
 <img width="567" height="659" alt="スクリーンショット 2025-11-15 114645" src="https://github.com/user-attachments/assets/763d1b5b-8a26-4e43-8774-5808c680c23a" />
+
 > *図5：システムのフローチャート*
 
 ### 技術的な工夫
@@ -61,4 +66,5 @@
 10世代にわたるユーザー評価の推移です。20代の被験者12名を対象に実験を行いました。全被験者の平均および最大評価値の推移を図6に示します。世代の更新に伴い評価値は上昇傾向を示しました。この傾向を統計的に検証するため、初期世代と最終世代に対しWilcoxon符
 号順位検定を実施しました。**解析の結果、平均評価値（p<0.01)、最大評価値（p<0.05）の 双方 において統計的に有意な上昇が確認されました。**
 <img width="1286" height="455" alt="スクリーンショット 2026-04-09 132733" src="https://github.com/user-attachments/assets/f3594bc6-40d3-4ae8-a54e-8ccb269d3a09" />
+
 > *図6：探索実験の評価値の推移（左：平均値，右：最大値）*
